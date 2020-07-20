@@ -1,0 +1,33 @@
+<mat-toolbar color="primary">
+  <mat-toolbar-row>
+    <button mat-icon-button (click)="sideNav.open()" fxShow="true" fxHide.gt-sm>
+      <mat-icon>menu</mat-icon>
+    </button>
+
+    <span>Clinica</span>
+
+    <span class="menu-spacer"></span>
+    <div>
+      <a routerLink="mis-turnos" mat-button>Mis Turnos</a>
+    </div>
+    <div>
+      <button mat-button [matMenuTriggerFor]="menu">
+        <span> {{ dateUser.lastName }} </span>
+        <img [src]="dateUser.photo" class="img-size" />
+      </button>
+      <mat-menu #menu="matMenu">
+        <button mat-menu-item (click)="singOut()">Cerrar sesion</button>
+      </mat-menu>
+    </div>
+  </mat-toolbar-row>
+</mat-toolbar>
+
+<mat-sidenav-container fxFlexFill>
+  <mat-sidenav #sideNav>
+    <mat-nav-list></mat-nav-list>
+  </mat-sidenav>
+
+  <mat-sidenav-content>
+    <router-outlet></router-outlet>
+  </mat-sidenav-content>
+</mat-sidenav-container>

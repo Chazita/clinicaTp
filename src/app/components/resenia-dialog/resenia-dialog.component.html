@@ -1,0 +1,51 @@
+<div mat-dialog-content>
+  <div>
+    <mat-label>Reseña Cliente</mat-label>
+    <input
+      matInput
+      type="text"
+      maxlength="66"
+      [(ngModel)]="data.resenia.textoCliente"
+      [disabled]="data.role != 'cliente'"
+    />
+  </div>
+
+  <div>
+    <mat-label>Puntuacion Clinica</mat-label>
+    <input
+      matInput
+      type="number"
+      min="1"
+      max="10"
+      [(ngModel)]="data.resenia.puntuacionClinica"
+      [disabled]="data.role != 'cliente'"
+    />
+  </div>
+
+  <div>
+    <mat-label>Puntuacion Especialista</mat-label>
+    <input
+      matInput
+      type="number"
+      min="1"
+      max="10"
+      [(ngModel)]="data.resenia.puntuacionEspecialista"
+      [disabled]="data.role != 'cliente'"
+    />
+  </div>
+
+  <div>
+    <mat-label>Reseña del Especialista</mat-label>
+    <input
+      matInput
+      type="text"
+      maxlength="66"
+      [(ngModel)]="data.resenia.textoEspecialista"
+      [disabled]="data.role != 'especialista'"
+    />
+  </div>
+</div>
+<div mat-dialog-actions>
+  <button mat-button (click)="onNoClick()">Cerrar</button>
+  <button mat-button [mat-dialog-close]="data" cdkFocusInitial>Enviar</button>
+</div>

@@ -1,0 +1,53 @@
+<form class="example-form" (ngSubmit)="Login()" style="height: 50vh;">
+  <h1>Iniciar Sesion</h1>
+  <mat-form-field class="example-full-width" apparence="fill">
+    <mat-label>Email</mat-label>
+    <input
+      matInput
+      [formControl]="emailFormControl"
+      [errorStateMatcher]="matcher"
+      placeholder="Ex. pat@example.com"
+    />
+    <mat-error
+      *ngIf="
+        emailFormControl.hasError('email') &&
+        !emailFormControl.hasError('required')
+      "
+    >
+      Ingrese un email valido.
+    </mat-error>
+    <mat-error *ngIf="emailFormControl.hasError('required')">
+      Email es <strong>necesario</strong>.
+    </mat-error>
+  </mat-form-field>
+
+  <mat-form-field class="example-full-width">
+    <mat-label>Password</mat-label>
+    <input
+      matInput
+      type="password"
+      [formControl]="passwordFormControl"
+      [errorStateMatcher]="matcher"
+      placeholder="Ex. pat@example.com"
+    />
+    <mat-error
+      *ngIf="
+        passwordFormControl.hasError('minLength') &&
+        !passwordFormControl.hasError('required')
+      "
+    >
+      Ingrese un contraseña de 6 o mas caracteres.
+    </mat-error>
+    <mat-error *ngIf="passwordFormControl.hasError('required')">
+      La Contraseña es <strong>necesario</strong>.
+    </mat-error>
+  </mat-form-field>
+  <button
+    type="submit"
+    mat-raised-button
+    [disabled]="!emailFormControl.valid && !passwordFormControl.valid"
+    color="primary"
+  >
+    Registrarse
+  </button>
+</form>

@@ -1,0 +1,39 @@
+<table mat-table [dataSource]="turnos">
+  <ng-container matColumnDef="fecha">
+    <th mat-header-cell *matHeaderCellDef>Fecha</th>
+    <td mat-cell *matCellDef="let item">{{ item.fecha }}</td>
+  </ng-container>
+
+  <ng-container matColumnDef="hora">
+    <th mat-header-cell *matHeaderCellDef>Hora</th>
+    <td mat-cell *matCellDef="let item">{{ item.hora }}</td>
+  </ng-container>
+
+  <ng-container matColumnDef="nombre">
+    <th mat-header-cell *matHeaderCellDef>Nombre</th>
+    <td mat-cell *matCellDef="let item">{{ item.clienteName }}</td>
+  </ng-container>
+
+  <ng-container matColumnDef="apellido">
+    <th mat-header-cell *matHeaderCellDef>Apellido</th>
+    <td mat-cell *matCellDef="let item">{{ item.clienteLastName }}</td>
+  </ng-container>
+
+  <ng-container matColumnDef="especialista">
+    <th mat-header-cell *matHeaderCellDef>Especialista</th>
+    <td mat-cell *matCellDef="let item">{{ item.especialistaFullName }}</td>
+    <td></td>
+  </ng-container>
+
+  <ng-container matColumnDef="accion">
+    <th mat-header-cell *matHeaderCellDef>Accion</th>
+    <td mat-cell *matCellDef="let item">
+      <button mat-raised-button color="warn" (click)="eliminarTurno(item.uid)">
+        Cancelar
+      </button>
+    </td>
+  </ng-container>
+
+  <tr mat-header-row *matHeaderRowDef="displayColumn"></tr>
+  <tr mat-row *matRowDef="let row; columns: displayColumn"></tr>
+</table>

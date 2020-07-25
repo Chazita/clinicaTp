@@ -1,5 +1,11 @@
 <form class="example-form" (ngSubmit)="Register()" style="height: 50vh;">
-  <h1>Registro</h1>
+  <div class="title">
+    <button type="button" mat-mini-fab color="primary" routerLink="/login">
+      <mat-icon>arrow_back</mat-icon>
+    </button>
+    <h1>Registro</h1>
+  </div>
+
   <mat-form-field class="example-full-width">
     <mat-label>Nombre</mat-label>
     <input
